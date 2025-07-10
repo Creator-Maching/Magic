@@ -1,151 +1,169 @@
-/**/
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
-    height: 2000px;
+    min-height: 100vh;
+    background-image: url("https://th.bing.com/th/id/OIP.JHhCpxbemQ8ZxqmKuJi7qgHaFa?rs=1&pid=ImgDetMain");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
-header{
-    max-height: 100px;
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 30px;
 }
 
-.logo img{
+.logo img {
     width: 75px;
-    float: left;
     border-radius: 20%;
 }
 
-.cabeçalho{
+.cabeçalho {
     background-color: white;
-    float: right;
-    margin: 30px;
-    padding: 45px;
     border-radius: 50%;
+    padding: 20px 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.cabeçalho a{
+.cabeçalho a {
     background-color: blueviolet;
     color: yellow;
-    margin: 50px;
-    padding: 40px;
+    padding: 15px 25px;
     text-decoration: none;
     border-radius: 30%;
+    transition: background-color 0.3s ease;
 }
 
 .cabeçalho a:hover {
     background-color: blue;
 }
 
-body{
-    background-image:url("https://th.bing.com/th/id/OIP.JHhCpxbemQ8ZxqmKuJi7qgHaFa?rs=1&pid=ImgDetMain");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    width: 100%;
-    height: auto;
+/* FOOTER */
+footer {
+    text-align: center;
+    margin: 200px 0 100px;
+    text-shadow: 2px 2px 3px black;
+    color: white;
 }
 
-footer{
-    color: white;
-    text-align: center;
-    height: 30px;
-    margin-top: 200px;
-    margin-bottom: 100px;
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
     text-shadow: 2px 2px 3px black;
 }
-.container p{
-    text-align: center;
-    margin-left: 300px;
-    width: 600px;
-    height: auto;
-}
 
-.container h1{
+.container h1 {
     background-color: black;
-    color: white;
+    padding: 10px 0;
     text-align: center;
-    text-shadow: 2px 2px 3px black;
 }
 
-.container{
-    margin: 0 40px 0 40px;
-    color:white;
-    text-shadow: 2px 2px 3px black;
+.container p {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
 }
 
-.efeito{
-    margin: 0 40px 0 40px;
+/* EFEITO */
+.efeito {
     background-color: rgba(128, 128, 128, 0.6);
+    margin: 0 20px;
+    padding: 40px 20px;
+    border-radius: 10px;
 }
 
-.richard{
-    border-radius: 40%;
-    float: left;
-    padding-right: 100px;
-    width: 350px;
-}
-.game{
-    border-radius: 40%;
-    float: right;
-    width: 350px;
-    padding-left: 100px;
-    height: 200px;
-}
-
-.icons{
+/* SECTIONS: REMOVE FLOATS, USANDO FLEXBOX */
+.icons, .segundo {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
     margin-top: 100px;
 }
 
-.richard:hover{
-    opacity: 50%;
-}
-
-.game:hover{
-    opacity: 50%;
-}
-
-.regras{
+.richard, .game, .regras, .formatos, .centro {
     border-radius: 40%;
-    float: left;
-    padding-right: 100px;
-    width: 350px;
+    width: 300px;
+    height: auto;
+    transition: opacity 0.3s ease;
 }
 
-.regras:hover{
-    opacity: 50%;
+.richard:hover, .game:hover, .regras:hover, .formatos:hover {
+    opacity: 0.5;
 }
 
-.segundo{
-    display: flex;
-    margin-top: 100px;
+/* ALINHAMENTOS E PADDING */
+.richard, .regras, .centro {
+    /* Se quiser, pode adicionar margem direita para espaçar no desktop */
 }
 
-a{
+.game, .formatos {
+    /* Se quiser, pode adicionar margem esquerda para espaçar no desktop */
+}
+
+/* LINKS */
+a {
     text-decoration: none;
     color: yellow;
     text-align: center;
 }
 
-.formatos{
-    border-radius: 40%;
-    float: right;
-    width: 350px;
-    padding-left: 100px;
-    height: 200px;
+/* RESPONSIVIDADE */
+/* Mobile primeiro, telas pequenas */
+@media (max-width: 768px) {
+    .cabeçalho {
+        justify-content: center;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+
+    .cabeçalho a {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .richard, .game, .regras, .formatos, .centro {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .icons, .segundo {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .container p {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
 }
 
-.formatos:hover{
-    opacity: 50%;
-}
-.centro{
-    float: left;
-    padding-right: 100px;
-    width: 350px;
+/* Para desktops maiores */
+@media (min-width: 769px) {
+    .container p {
+        margin-left: 300px;
+        width: 600px;
+    }
+
+    .icons, .segundo {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
 }
